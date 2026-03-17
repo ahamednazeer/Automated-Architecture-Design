@@ -536,7 +536,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
 
                     {/* Tab Content */}
                     <div className="animate-scale-in">
-                        {activeTab === 'overview' && (
+                        {activeTab === 'overview' && architecture && (
                             <div className="space-y-6">
                                 {/* Stats */}
                                 <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
@@ -569,7 +569,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                             </div>
                         )}
 
-                        {activeTab === 'diagrams' && (
+                        {activeTab === 'diagrams' && architecture && (
                             <div className="space-y-6">
                                 {architecture.diagrams?.map((diagram, idx) => (
                                     <div key={idx} className="space-y-2">
@@ -586,7 +586,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                             </div>
                         )}
 
-                        {activeTab === 'components' && (
+                        {activeTab === 'components' && architecture && (
                             <div className="space-y-4">
                                 {(() => {
                                     const grouped: Record<string, any[]> = {};
@@ -628,7 +628,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                             </div>
                         )}
 
-                        {activeTab === 'infrastructure' && (
+                        {activeTab === 'infrastructure' && architecture && (
                             <div className="space-y-4">
                                 {(() => {
                                     const grouped: Record<string, any[]> = {};
@@ -672,7 +672,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                             </div>
                         )}
 
-                        {activeTab === 'optimizations' && (
+                        {activeTab === 'optimizations' && architecture && (
                             <div className="space-y-3">
                                 {architecture.optimization_suggestions?.map((opt, idx) => (
                                     <div key={idx} className="bg-slate-800/40 border border-slate-700/60 rounded-xl p-5">
@@ -698,7 +698,7 @@ export default function ProjectDetailPage({ params }: { params: Promise<{ id: st
                             </div>
                         )}
 
-                        {activeTab === 'documentation' && (
+                        {activeTab === 'documentation' && architecture && (
                             <div className="bg-slate-800/40 border border-slate-700/60 rounded-xl p-8">
                                 <div className="flex items-center justify-between mb-6 gap-3">
                                     <h3 className="text-sm font-mono text-slate-400 uppercase tracking-widest flex items-center gap-2">

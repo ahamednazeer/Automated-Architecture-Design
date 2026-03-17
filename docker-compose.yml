@@ -1,0 +1,25 @@
+services:
+  backend:
+    image: archdesign-backend:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - GROQ_API_KEY=${GROQ_API_KEY}
+      - DATABASE_URL=sqlite:////data/archdesign.db
+      - DOCX_SIGNING_SECRET=${DOCX_SIGNING_SECRET}
+    volumes:
+      - backend-data:/data
+    restart: unless-stopped
+
+  frontend:
+    image: archdesign-frontend:latest
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+volumes:
+  backend-data:
